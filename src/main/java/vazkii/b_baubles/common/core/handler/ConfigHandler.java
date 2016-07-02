@@ -187,7 +187,7 @@ public final class ConfigHandler {
 			if(changes.size() == 0)
 				return;
 			
-			player.addChatComponentMessage(new ChatComponentTranslation("botaniamisc.adaptativeConfigChanges").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GOLD)));
+			player.addChatComponentMessage(new ChatComponentTranslation("BMBmisc.adaptativeConfigChanges").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GOLD)));
 			for(String change : changes)
 				player.addChatMessage(new ChatComponentText(change).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.LIGHT_PURPLE)));
 		}

@@ -25,7 +25,7 @@ import vazkii.b_baubles.common.lib.LibItemNames;
 public class ItemFireRod extends ItemMod {
 
 
-	private static final int COOLDOWN = 1200;
+	private static final int COOLDOWN = 400;
 
 	public ItemFireRod() {
 		setUnlocalizedName(LibItemNames.FIRE_ROD);
