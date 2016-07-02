@@ -1,0 +1,80 @@
+# MISC
+itemGroup.b_baubles=Baubles Minus Botania
+
+# Something that is not localized, translators, do NOT change this line.
+botaniamisc.noloc=botaniamisc.noloc
+
+# MISC
+b_baublesmisc.shiftinfo=Hold &bSHIFT&7 for more info
+
+botaniamisc.wandMode.bind=Bind Mode
+botaniamisc.wandMode.function=Function Mode
+
+botaniamisc.relicUnbound=&6Relic&7, Unbound
+botaniamisc.relicSoulbound=&6Relic&7, Soulbound to &f%s
+botaniamisc.notYourSagittarius=&4This relic is not yours
+
+botaniamisc.active=&aActive
+botaniamisc.inactive=&cInactive
+
+botaniamisc.adaptativeConfigChanges=Minus Botania's Adaptative Config has changed the following config defaults for you:
+
+
+# WINGS
+b_baubles.wings0=No Wings
+b_baubles.wings1=Wings: Angelic
+b_baubles.wings2=Wings: Dark Angel
+b_baubles.wings3=Wings: Wintry
+b_baubles.wings4=Wings: Blazing
+b_baubles.wings5=Wings: Pixie
+
+
+# CONFIGURATION
+adaptativeConfig.enabled=Adaptative Config
+relics.enabled=Enable Relics
+vanillaParticleConfig.enabled=Use Vanilla Particle Config
+shaders.enabled=Enable Shader Usage
+baubleRender.enabled=Enable Bauble Rendering
+wandBeam.static=Enable Static Wand Beam
+flugeltiaranerf.enabled=Enable Faerie Talisman Infinite Flight
+flugeltiara.maxflytime=Faerie Talisman Max Fly Time
+magnetRing.invert=Invert sneak behaviour of the Ring of Attraction
+
+
+# BAUBLE TOOLTIPS
+b_baubles.baubletype.amulet=Equippable in the &aAmulet&7 slot
+b_baubles.baubletype.ring=Equippable in the &aRing&7 slot
+b_baubles.baubletype.belt=Equippable in the &aBelt&7 slot
+b_baubles.baubletooltip=Press &b%key%&7 to open the Baubles menu
+
+
+# DEATH MESSAGES
+death.attack.b_baubles-relic=%s was punished for using a relic that isn't theirs
+
+# ENTITY NAMES
+entity.b_baubles.b_baubles:flameRing.name=Flame Ring
+
+# ITEM NAMES
+
+item.b_baubles:terraformRod.name=Rod of the Terra Firma
+item.b_baubles:fireRod.name=Inferno Sceptre
+item.b_baubles:diviningRod.name=Staff of the Core
+
+item.b_baubles:travelBelt.name=Belt of the Traveller
+item.b_baubles:knockbackBelt.name=Atlas's Girdle
+item.b_baubles:icePendant.name=Winter's Medallion
+item.b_baubles:lavaPendant.name=Blaze's Medallion
+item.b_baubles:magnetRing.name=Ring of Attraction
+item.b_baubles:waterRing.name=Ring of Atlantis
+item.b_baubles:miningRing.name=Dwarven Ring
+item.b_baubles:reachRing.name=Ring of Far Reach
+item.b_baubles:flightTiara.name=Faerie Talisman
+item.b_baubles:superTravelBelt.name=Speedforce Belt
+item.b_baubles:superLavaPendant.name=Dragonskin Amulet
+item.b_baubles:blackHoleTalisman.name=Vortex Pouch
+item.b_baubles:magnetRingGreater.name=Empowered Ring of Attraction
+item.b_baubles:sextant.name=Constructor's Compass
+item.b_baubles:speedUpBelt.name=Belt of Momentum
+
+item.b_baubles:baubleBox.name=Bauble Case
+

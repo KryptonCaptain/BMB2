@@ -1,0 +1,11 @@
+{
+	"dash": { "category": "player", "sounds":["dash"] },
+	"ding": { "category": "block", "sounds":["ding"] },
+
+	"divinationRod": { "category": "player", "sounds":["divinationRod"] },
+
+	"equipBauble": { "category": "player", "sounds":["equipBauble"] },
+
+	"terraformRod": { "category": "player", "sounds":["terraformRod"] }
+
+}

@@ -1,0 +1,123 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+    }
+}
+
+repositories {
+    maven {
+        name = "chickenbones"
+        url = "http://chickenbones.net/maven/"
+    }
+}
+
+apply plugin: 'forge'
+
+ext.configFile = file('build.properties')
+
+ext.config = parseConfig(configFile)
+
+version = "${config.version}-${config.build_number}"
+group = "vazkii.botania" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = config.mod_name
+
+minecraft {
+    version = "${config.mc_version}-${config.forge_version}"
+    assetDir = "eclipse/assets"
+
+    //This, does the token replacement.
+    //Though, I reccomend this to be replaced with a token such as @VERSION@
+    replace 'GRADLE:BUILD', config.build_number
+    replace 'GRADLE:VERSION', config.version
+
+    replaceIn 'LibMisc.java' //I may have missed another file, though I can only find it in here.
+}
+
+//This here is for FTP
+repositories {
+    mavenCentral()
+}
+configurations {
+    ftpAntTask
+}
+//End of the FTP config
+dependencies {
+    compile files(
+            'Baubles-deobf.jar'
+    )
+    compile "codechicken:CodeChickenLib:1.7.10-1.1.1.109:dev"
+    compile "codechicken:CodeChickenCore:1.7.10-1.0.4.29:dev"
+    compile "codechicken:NotEnoughItems:1.7.10-1.0.3.74:dev"
+    compile "codechicken:ForgeMultipart:1.7.10-1.1.1.320:dev"
+
+    //and a bit more for FTP
+    ftpAntTask module("org.apache.ant:ant-commons-net:1.7.0") {
+        module("commons-net:commons-net:1.4.1") {
+            dependencies("oro:oro:2.0.8@jar")
+        }
+    }
+}
+
+processResources {
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        // replace version and mcversion
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info', '**/psd/**'
+    }
+}
+
+/**
+ * These, go outside of the processResources {}* Though, this was added with the NEI intergation commit (8bf4680)
+ */
+task deobfJar(type: Jar) {
+    from(sourceSets.main.output)
+	archiveName = "${baseName} ${version}-deobf.${extension}"
+}
+
+artifacts {
+    archives deobfJar
+}
+/**
+ * Increments the buildnumber in your config file, and saves it
+ */
+task incrementBuildNumber(dependsOn: 'reobf') << {
+    config.build_number = (config.build_number.toString().toInteger()) + 1
+    configFile.withWriter {
+        config.toProperties().store(it, "")
+    }
+
+    file("${config.dir_repo}/version/${minecraft.version}.txt").write("${version}")
+}
+
+def parseConfig(File config) {
+    config.withReader {
+        def prop = new Properties()
+        prop.load(it)
+        return (new ConfigSlurper().parse(prop))
+    }
+}
+
+jar {
+    //rename the default output, for some better... sanity with scipts
+    archiveName = "${baseName} ${version}.${extension}"
+}
+
+defaultTasks 'build', 'sort' //remove clean if you want faster builds, this will stop rare inconsistancies. 
